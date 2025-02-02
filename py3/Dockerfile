@@ -4,11 +4,11 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     tzdata \
-    && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+    && ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV TZ=Asia/Tokyo
+ENV TZ=Europe/Moscow
 
 # JupyterLab Packages
 RUN python3 -m pip install --upgrade pip \
@@ -30,7 +30,6 @@ RUN pip install --no-cache-dir \
     scikit-learn \
     pycaret \
     matplotlib \
-    japanize_matplotlib \
     mlxtend \
     seaborn \
     plotly \
@@ -50,4 +49,4 @@ RUN pip install --no-cache-dir \
     lightgbm \
     mediapipe \
     ultralytics \
-    jupyterlab-language-pack-ja-JP
+    jupyterlab-language-pack-ru-RU
